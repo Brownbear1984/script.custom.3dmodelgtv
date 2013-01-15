@@ -1,4 +1,5 @@
  **NOTE: This script only works with 2011 Smart TV's from LG.**
+ 
  Make sure to pair a device first and fill in the ip and pairing key.
  
  The code for communication with a LG TV is taken from: https://github.com/ubaransel/lgcommander
