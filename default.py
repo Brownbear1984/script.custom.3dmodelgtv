@@ -1,7 +1,3 @@
-# NOTE: This script only works with 2011 Smart TV's from LG. Make sure to pair a device first and fill in the ip and pairing key.
-# The code for communication with a LG TV is taken from: https://github.com/ubaransel/lgcommander
-# This code doesn't contain functions when playback stops. This should not be needed when using automatic refreshrate switching in XBMC.
-# It should turn on the last used 3D mode on the TV. No support for multiple modes.
 import xbmc,re,httplib
 import xml.etree.ElementTree as etree
 
@@ -39,8 +35,7 @@ class MyPlayer(xbmc.Player) :
     def onPlayBackStarted(self):
         if xbmc.Player().isPlayingVideo():
             currentPlayingFile = xbmc.Player().getPlayingFile()
-            # Edit '3D Movies' below with the path to your 3D content. I keep my 3D content in a folder called '3D Movies'
-            if re.search('3D Movies', currentPlayingFile, re.I):
+            if re.search(r'3D Movies', currentPlayingFile, re.I):
                 lgtv["session"] = getSessionid()
                 if lgtv["session"]:
                     xbmc.sleep(2500) # sleep for a while, may need modification depending on your TV
