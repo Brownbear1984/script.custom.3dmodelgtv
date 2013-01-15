@@ -49,5 +49,6 @@ class MyPlayer(xbmc.Player) :
                     xbmc.sleep(900)
                     handleCommand("68") # Send Select button again
 
+player=MyPlayer()
 while(1):
         xbmc.sleep(500)
