@@ -8,6 +8,7 @@ import xml.etree.ElementTree as etree
 lgtv = {}
 lgtv["ipaddress"] = "10.0.1.105"
 lgtv["pairingKey"] = "DDGPSF"
+headers = {"Content-Type": "application/atom+xml"}
 
 def getSessionid():
     conn = httplib.HTTPConnection( lgtv["ipaddress"], port=8080)
@@ -31,11 +32,11 @@ def handleCommand(cmdcode):
     httpResponse = conn.getresponse()
 
 class MyPlayer(xbmc.Player) :
+    global lgtv
     def _init_ (self):
         xbmc.Player._init_(self)
 
     def onPlayBackStarted(self):
-        global lgtv
         if xbmc.Player().isPlayingVideo():
             currentPlayingFile = xbmc.Player().getPlayingFile()
             # Edit '3D Movies' below with the path to your 3D content. I keep my 3D content in a folder called '3D Movies'
