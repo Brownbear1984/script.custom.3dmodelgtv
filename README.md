@@ -4,8 +4,7 @@
  
  The code for communication with a LG TV is taken from: https://github.com/ubaransel/lgcommander
  
- This code doesn't contain functions when playback stops. This should not be needed when using automatic refreshrate switching in XBMC.
-For best results make sure Picture>3D Settings>3D Pattern Recognition is set to On.
+ For best results make sure Picture>3D Settings>3D Pattern Recognition is set to On.
  
  **How to use**
  1. Get a pairing key for your TV (you can use https://github.com/ubaransel/lgcommander for that).
