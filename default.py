@@ -2,15 +2,15 @@ import xbmc,re,httplib
 import xml.etree.ElementTree as etree
 
 lgtv = {}
-lgtv["ipaddress"] = "10.0.1.105"
-lgtv["pairingKey"] = "DDGPSF"
+lgtv["ipaddress"] = "192.168.0.112"
+lgtv["pairingKey"] = "755887"
 headers = {"Content-Type": "application/atom+xml"}
 
 def getSessionid():
     conn = httplib.HTTPConnection( lgtv["ipaddress"], port=8080)
     pairCmd = "<?xml version=\"1.0\" encoding=\"utf-8\"?><auth><type>AuthReq</type><value>" \
             + lgtv["pairingKey"] + "</value></auth>"
-    conn.request("POST", "/hdcp/api/auth", pairCmd, headers=headers)
+    conn.request("POST", "/roap/api/auth", pairCmd, headers=headers)
     httpResponse = conn.getresponse()
     if httpResponse.reason != "OK" : return False
     tree = etree.XML(httpResponse.read())
@@ -19,12 +19,11 @@ def getSessionid():
 
 def handleCommand(cmdcode):
     conn = httplib.HTTPConnection( lgtv["ipaddress"], port=8080)
-    cmdText = "<?xml version=\"1.0\" encoding=\"utf-8\"?><command><session>" \
-                + lgtv["session"]  \
-                + "</session><type>HandleKeyInput</type><value>" \
+    cmdText = "<?xml version=\"1.0\" encoding=\"utf-8\"?><command>" \
+                + "<name>HandleKeyInput</name><value>" \
                 + cmdcode \
                 + "</value></command>"
-    conn.request("POST", "/hdcp/api/dtv_wifirc", cmdText, headers=headers)
+    conn.request("POST", "/roap/api/command", cmdText, headers=headers)
     httpResponse = conn.getresponse()
 
 class MyPlayer(xbmc.Player) :
@@ -35,15 +34,13 @@ class MyPlayer(xbmc.Player) :
     def onPlayBackStarted(self):
         if xbmc.Player().isPlayingVideo():
             currentPlayingFile = xbmc.Player().getPlayingFile()
-            if re.search(r'3D Movies', currentPlayingFile, re.I):
+            if re.search(r'3d', currentPlayingFile, re.I):
                 lgtv["session"] = getSessionid()
                 if lgtv["session"]:
-                    xbmc.sleep(2500) # sleep for a while, may need modification depending on your TV
-                    handleCommand("220") # Send 3D button
-                    xbmc.sleep(900)
-                    handleCommand("68") # Send Select button
-                    xbmc.sleep(900)
-                    handleCommand("68") # Send Select button again
+                    xbmc.sleep(7000) # sleep for a while, may need modification depending on your TV
+                    handleCommand("400") # Send 3D button
+                    xbmc.sleep(200)
+                    handleCommand("20") # Send Enter button
 
 player=MyPlayer()
 while(1):
