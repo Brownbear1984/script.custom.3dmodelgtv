@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<addon id="script.custom.3dmodelgtv" name="3D Mode LG TV switch" version="2.0.2" provider-name="jaaps">
+<addon id="script.custom.3dmodelgtv" name="3D Mode LG TV switch" version="1.0.0" provider-name="Brownbear1984">
 	<requires>
 		<import addon="xbmc.python" version="2.1"/>
 	</requires>
 	<extension point="xbmc.service" library="default.py" start="login"/>
 	<extension point="xbmc.addon.metadata">
-		<summary>Automatically switch LG TV to TAB 3D Mode when playing 3D Files</summary>
+		<summary>Automatically switch LG TV to 3D Mode when playing 3D Files</summary>
 		<description/>
 		<platform>all</platform>
 	</extension>
