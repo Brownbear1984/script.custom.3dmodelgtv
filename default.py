@@ -2,8 +2,8 @@ import xbmc,re,httplib
 import xml.etree.ElementTree as etree
 
 lgtv = {}
-lgtv["ipaddress"] = "192.168.0.112"
-lgtv["pairingKey"] = "755887"
+lgtv["ipaddress"] = "Enter IP"
+lgtv["pairingKey"] = "Enter Key"
 headers = {"Content-Type": "application/atom+xml"}
 
 def getSessionid():
