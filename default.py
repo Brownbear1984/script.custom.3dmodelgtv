@@ -1,9 +1,12 @@
 import xbmc,re,httplib
 import xml.etree.ElementTree as etree
+import xbmcaddon
 
+xbmcplugin = xbmcaddon.Addon()
 lgtv = {}
-lgtv["ipaddress"] = "Enter IP"
-lgtv["pairingKey"] = "Enter Key"
+lgtv["ipaddress"] = xbmcplugin.getSetting("ipaddress")
+lgtv["pairingKey"] = xbmcplugin.getSetting("pairingkey")
+lgtv["regex"] = xbmcplugin.getSetting("expression")
 headers = {"Content-Type": "application/atom+xml"}
 
 def getSessionid():
@@ -34,19 +37,20 @@ class MyPlayer(xbmc.Player) :
     def onPlayBackStarted(self):
         if xbmc.Player().isPlayingVideo():
             currentPlayingFile = xbmc.Player().getPlayingFile()
-            if re.search(r'3d', currentPlayingFile, re.I):
+            if re.search(lgtv["regex"], currentPlayingFile, re.I):
                 lgtv["session"] = getSessionid()
                 if lgtv["session"]:
                     xbmc.sleep(10000) # sleep for a while, may need modification depending on your TV
                     handleCommand("400") # Send 3D button
                     xbmc.sleep(200)
-                    handleCommand("20") # Send Enter button
+                    handleCommand("20") # Send Select button
 
     def onPlayBackStopped(self):
         lgtv["session"] = getSessionid()
         if lgtv["session"]:
-            handleCommand("400") # Send 3D button to turn 3D off
+            handleCommand("400") # Send 3D button
         
 player=MyPlayer()
 while(1):
         xbmc.sleep(500)
+
