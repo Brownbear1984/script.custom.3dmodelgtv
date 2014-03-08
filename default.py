@@ -42,6 +42,11 @@ class MyPlayer(xbmc.Player) :
                     xbmc.sleep(200)
                     handleCommand("20") # Send Enter button
 
+    def onPlayBackStopped(self):
+        lgtv["session"] = getSessionid()
+        if lgtv["session"]:
+            handleCommand("400") # Send 3D button to turn 3D off
+        
 player=MyPlayer()
 while(1):
         xbmc.sleep(500)
