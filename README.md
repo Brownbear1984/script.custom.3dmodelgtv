@@ -1,11 +1,11 @@
- **NOTE: This script only works with 2011 Smart TV's from LG.**
+ **NOTE: This script only works with 2012 Smart TV's from LG.**
  
  Make sure to pair a device first and fill in the ip and pairing key.
  
  The code for communication with a LG TV is taken from: https://github.com/ubaransel/lgcommander
  
  This code doesn't contain functions when playback stops. This should not be needed when using automatic refreshrate switching in XBMC.
- It should turn on the last used 3D mode on the TV. No support for multiple modes.
+For best results make sure Picture>3D Settings>3D Pattern Recognition is set to On.
  
  **How to use**
  1. Get a pairing key for your TV (you can use https://github.com/ubaransel/lgcommander for that).
