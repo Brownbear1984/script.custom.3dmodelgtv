@@ -37,7 +37,7 @@ class MyPlayer(xbmc.Player) :
             if re.search(r'3d', currentPlayingFile, re.I):
                 lgtv["session"] = getSessionid()
                 if lgtv["session"]:
-                    xbmc.sleep(7000) # sleep for a while, may need modification depending on your TV
+                    xbmc.sleep(10000) # sleep for a while, may need modification depending on your TV
                     handleCommand("400") # Send 3D button
                     xbmc.sleep(200)
                     handleCommand("20") # Send Enter button
