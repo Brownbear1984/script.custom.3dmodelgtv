@@ -8,8 +8,7 @@
  
  **How to use**
  1. Get a pairing key for your TV (you can use https://github.com/ubaransel/lgcommander for that).
- 2. Fill in the IP and pairing key in default.py at line 5 and 6
- 3. Replace '3d' in default.py at line 37 with your own path/regex for your 3D content.
- 4. Turn on automatic refresh rate switching in XBMC
+ 2. Fill in the IP and pairing key in addon settings
+ 3. Enter your path/regex for 3D content into addon settings.
  4. You might need to change the xbmc.sleep() amounts depending on your setup.
  
