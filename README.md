@@ -10,7 +10,7 @@ For best results make sure Picture>3D Settings>3D Pattern Recognition is set to 
  **How to use**
  1. Get a pairing key for your TV (you can use https://github.com/ubaransel/lgcommander for that).
  2. Fill in the IP and pairing key in default.py at line 5 and 6
- 3. Replace '3D Movies' in default.py at line 38 with your own path/regex for your 3D content.
+ 3. Replace '3d' in default.py at line 37 with your own path/regex for your 3D content.
  4. Turn on automatic refresh rate switching in XBMC
  4. You might need to change the xbmc.sleep() amounts depending on your setup.
  
