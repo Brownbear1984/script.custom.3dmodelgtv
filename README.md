@@ -10,5 +10,5 @@
  1. Get a pairing key for your TV (you can use https://github.com/ubaransel/lgcommander for that).
  2. Fill in the IP and pairing key in addon settings
  3. Enter your path/regex for 3D content into addon settings.
- 4. You might need to change the xbmc.sleep() amounts depending on your setup.
+ 4. You might need to change the wait time in addon settings depending on your setup.
  
