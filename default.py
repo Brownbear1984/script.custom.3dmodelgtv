@@ -7,6 +7,7 @@ lgtv = {}
 lgtv["ipaddress"] = xbmcplugin.getSetting("ipaddress")
 lgtv["pairingKey"] = xbmcplugin.getSetting("pairingkey")
 lgtv["regex"] = xbmcplugin.getSetting("expression")
+lgtv["sleep"] = xbmcplugin.getSetting("sleep")
 headers = {"Content-Type": "application/atom+xml"}
 
 def getSessionid():
@@ -40,7 +41,7 @@ class MyPlayer(xbmc.Player) :
             if re.search(lgtv["regex"], currentPlayingFile, re.I):
                 lgtv["session"] = getSessionid()
                 if lgtv["session"]:
-                    xbmc.sleep(10000) # sleep for a while, may need modification depending on your TV
+                    xbmc.sleep(lgtv["sleep"]) # sleep for a while, may need modification depending on your TV
                     handleCommand("400") # Send 3D button
                     xbmc.sleep(200)
                     handleCommand("20") # Send Select button
