@@ -2,4 +2,5 @@
    <setting id="ipaddress" type="ipaddress" label="30000" default="127.0.0.1"/>
    <setting id="pairingkey" type="text" label="30001" default="123456"/>
    <setting id="expression" type="text" label="30002" default="3D"/>
+   <setting id="sleep" type="text" label="30003" default="10000"/>
    </settings>
