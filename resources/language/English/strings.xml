@@ -1,4 +1,6 @@
 <strings>
     <string id="30000">LG TV IP Address</string>
     <string id="30001">LG TV Pairing Key</string>
-    <string id="30002">Path/Regex for 3D</string>    </strings>
+    <string id="30002">Path/Regex for 3D</string>
+    <string id="30003">3D switch wait time(ms)</string>
+</strings>
