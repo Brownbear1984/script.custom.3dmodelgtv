@@ -7,8 +7,8 @@ lgtv = {}
 lgtv["ipaddress"] = xbmcplugin.getSetting("ipaddress")
 lgtv["pairingKey"] = xbmcplugin.getSetting("pairingkey")
 lgtv["regex"] = xbmcplugin.getSetting("expression")
-lgtv["sleep"] = xbmcplugin.getSetting("sleep")
-lgtv["ok"] = xbmcplugin.getSetting("ok")
+lgtv["sleep"] = int(xbmcplugin.getSetting("sleep"))
+lgtv["ok"] = int(xbmcplugin.getSetting("ok"))
 headers = {"Content-Type": "application/atom+xml"}
 
 def getSessionid():
